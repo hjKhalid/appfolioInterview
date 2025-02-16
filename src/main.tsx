@@ -32,7 +32,7 @@ export const routes = [
         element: <LoginPage />,
       },
       {
-        path: "/resources-list",
+        path: "/resourceslist",
         element: (
           <PrivateRoute>
             <ResourceList />

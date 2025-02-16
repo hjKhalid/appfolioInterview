@@ -31,7 +31,7 @@ export function LoginPage(): JSX.Element {
     setLoading(true);
     const success = login(credentials);
     if (success) {
-      window.location.href = "/resources-list";
+      window.location.href = "/resourceslist";
     } else {
       setError("Invalid username or password");
       setLoading(false);

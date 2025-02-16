@@ -1,7 +1,6 @@
 // src/pages/ResourceList.tsx
 import { useQuery } from "@tanstack/react-query";
 import {
-  Table,
   TextInput,
   Loader,
   Container,
@@ -27,13 +26,16 @@ interface Rocket {
 
 const fetchResources = async (): Promise<Rocket[]> => {
   const res = await fetch("https://api.spacexdata.com/v4/rockets");
-  // if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
 export function ResourceList(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data, isLoading, isError } = useQuery<Rocket[]>(["rockets"], fetchResources);
+  const { data, isLoading, isError } = useQuery<Rocket[]>(
+    ["rockets"],
+    fetchResources
+  );
 
   const searchTerm = searchParams.get("search") || "";
   const filteredData = (data || []).filter((item) =>
@@ -56,7 +58,7 @@ export function ResourceList(): JSX.Element {
         }}
       >
         <Loader variant="bars" color="white" size="xl" />
-        <Text ml={2} >Loading ....</Text>
+        <Text ml={2}>Loading ....</Text>
       </Container>
     );
 
@@ -109,7 +111,9 @@ export function ResourceList(): JSX.Element {
                   {rocket.description.slice(0, 150)}...
                 </Text>
                 <Link to={`/resources/${rocket.id}`}>
-                  <Button size={isSmallScreen ? "sm" : "md"}>Learn More...</Button>
+                  <Button size={isSmallScreen ? "sm" : "md"}>
+                    Learn More...
+                  </Button>
                 </Link>
               </Flex>
             </Container>
