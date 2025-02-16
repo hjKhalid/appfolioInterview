@@ -1,0 +1,72 @@
+.header {
+  width: 100%;
+  padding-left:10px ;
+  padding-right: 10px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    color: gray;
+  }
+}
+
+.burger {
+  display: none;
+  color: white;
+}
+
+.drawer {
+  background:"black";
+  color: white;
+}
+
+.mobileLink {
+  display: block;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  // color: black;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: gray;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .links {
+    display: none; // Hide desktop links on mobile
+  }
+
+  .burger {
+    display: block; // Show burger menu on mobile
+  }
+}

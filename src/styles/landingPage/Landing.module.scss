@@ -1,0 +1,87 @@
+
+.imageContainer{
+  height: 100vh;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: black;
+  }
+  
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .responsiveImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .exploreButton {
+    margin: 10px;
+    border: 2px solid gray;
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .exploreText {
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: center;
+    background: black;
+    height: 40px;
+    color: white;
+    align-items: center;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .overlay {
+      top: 40%;
+    }
+  
+    .exploreButton {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  
+    .exploreText {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .overlay {
+      top: 35%;
+    }
+  
+    .exploreButton {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+  
+    .exploreText {
+      font-size: 0.7rem;
+    }
+  }
+  
