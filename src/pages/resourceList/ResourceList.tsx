@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { Link, useSearchParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
-import classes from "./ResourceList.module.scss";
+import classes from "../../styles/resourcelist/ResourceList.module.scss";
 
 interface Rocket {
   id: string;

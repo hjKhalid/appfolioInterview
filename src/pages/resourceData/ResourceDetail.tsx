@@ -64,7 +64,7 @@ export default function ResourceDetail(): JSX.Element {
 
   if (isLoading)
     return (
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 20, background: "black", height: "100vh" }}>
         <Skeleton height={50} circle mb="xl" />
         <Skeleton height={8} radius="xl" />
         <Skeleton height={8} mt={6} radius="xl" />
