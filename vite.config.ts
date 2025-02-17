@@ -7,6 +7,7 @@ export default defineConfig({
     port: 5175,
   },
   plugins: [react(), visualizer()],
+  base: './',
   build: {
     rollupOptions: {
       output: {
