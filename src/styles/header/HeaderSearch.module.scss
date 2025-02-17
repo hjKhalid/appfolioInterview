@@ -1,7 +1,6 @@
 .header {
   width: 100%;
-  padding-left:10px ;
-  padding-right: 10px;
+  padding: 10px 20px;
   background-color: black;
   color: white;
   display: flex;
@@ -18,7 +17,6 @@
 
 .logo {
   height: 40px;
-
   cursor: pointer;
 }
 
@@ -28,33 +26,62 @@
 }
 
 .link {
-  color:white;
+  color: white;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
   &:hover {
     color: gray;
   }
 }
 
+/* Mobile Menu (Burger) */
 .burger {
   display: none;
   color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
+/* Mobile Drawer Menu */
 .drawer {
-  background:"black";
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: right 0.3s ease-in-out;
+}
+
+/* Show menu when open */
+.drawer.open {
+  right: 0;
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
 }
 
 .mobileLink {
   display: block;
-  padding: 10px;
   font-size: 18px;
-  // color: white;
-  color: black;
+  color: white;
   text-decoration: none;
+  padding: 12px;
+  text-align: center;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
   &:hover {
     color: gray;
   }
@@ -63,10 +90,10 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .links {
-    display: none; // Hide desktop links on mobile
+    display: none; /* Hide desktop links on mobile */
   }
 
   .burger {
-    display: block; // Show burger menu on mobile
+    display: block; /* Show burger menu on mobile */
   }
 }
