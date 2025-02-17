@@ -49,11 +49,11 @@
 .drawer {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 250px;
+  right: 100%;
+  width: auto;
   height: 100vh;
   background-color: black;
-  color: white;
+  color:black;  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,6 +67,7 @@
 
 .mobileLinks {
   display: flex;
+
   flex-direction: column;
   gap: 20px;
   padding: 20px;
@@ -75,7 +76,7 @@
 .mobileLink {
   display: block;
   font-size: 18px;
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 12px;
   text-align: center;

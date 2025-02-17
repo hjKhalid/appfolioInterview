@@ -67,7 +67,6 @@ export default function HeaderSearch() {
           padding="md"
           size="60%"
           className={classes.drawer}
-          bg="blue"
           title="Menu"
           zIndex={1000000}
         >
