@@ -7,16 +7,19 @@ export default defineConfig({
     port: 5175,
   },
   plugins: [react()],
-  base: './',
+  base: "./",
+  //   build: {
+  //     rollupOptions: {
+  //       output: {
+  //         manualChunks: {
+  //           "react-vendor": ["react", "react-dom"],
+  //           "mantine-ui": ["@mantine/core", "@mantine/hooks"],
+  //           "react-query": ["@tanstack/react-query"],
+  //         },
+  //       },
+  //     }
+  // ,
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom"],
-          "mantine-ui": ["@mantine/core", "@mantine/hooks"],
-          "react-query": ["@tanstack/react-query"],
-        },
-      },
-    },
+    minify: false,
   },
 });
