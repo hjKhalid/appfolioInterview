@@ -1,5 +1,5 @@
-import { FC, useCallback } from "react";
-import { Button, Image, Text } from "@mantine/core";
+import { FC, useCallback, useRef } from "react";
+import { Button, Image, Loader, Text } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import HeaderSearch from "../header/HeaderSearch";
 import classes from "../../styles/landingPage/Landing.module.scss";
@@ -30,6 +30,7 @@ const IMAGES = [
 
 const Landing: FC = () => {
   const navigate = useNavigate();
+  const imageRef = useRef<HTMLImageElement>(null);
 
   // Memoized click handler to prevent unnecessary re-renders
   const handleExploreClick = useCallback(
@@ -47,8 +48,8 @@ const Landing: FC = () => {
             <Image
               src={image}
               alt={`SpaceX mission ${index + 1}`}
+              imageRef={imageRef}
               className={classes.responsiveImage}
-              loading="lazy"
               placeholder={<div className={classes.imagePlaceholder} />}
             />
             <div className={classes.overlay}>
