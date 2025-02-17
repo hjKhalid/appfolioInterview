@@ -30,7 +30,7 @@ const fetchResources = async (): Promise<Rocket[]> => {
   return res.json();
 };
 
-export function ResourceList(): JSX.Element {
+export default function ResourceList(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
   const { data, isLoading, isError } = useQuery<Rocket[]>(
     ["rockets"],

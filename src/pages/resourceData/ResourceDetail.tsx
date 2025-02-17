@@ -45,7 +45,7 @@ const fetchLaunches = async (rocketId: string): Promise<Launch[]> => {
   return res.json();
 };
 
-export function ResourceDetail(): JSX.Element {
+export default function ResourceDetail(): JSX.Element {
   const { id } = useParams<{ id: string }>();
 
   const {

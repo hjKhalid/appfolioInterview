@@ -1,62 +1,76 @@
-import { FC } from "react";
-import { Button, Container, Header, Image, Text } from "@mantine/core";
+import { FC, useCallback } from "react";
+import { Button, Image, Text } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import { HeaderSearch } from "../header/HeaderSearch";
+import HeaderSearch from "../header/HeaderSearch";
 import classes from "../../styles/landingPage/Landing.module.scss";
-
 import image1 from "../../asset/Eva_Suit_Desktop_alternate_1cf9bae18e.jpg";
-import image2 from "../../asset/Star12_18_021125_DSC_4851_desktop_a63e515a55.jpg";
-import image3 from "../../asset/make_life_multiplanetary_desktop_3fa7cff73c.jpg";
-import image4 from "../../asset/Flight_7_Website_Desktop_7_4afb3a9d9a.jpg";
+import image2 from "../../asset/Flight_7_Website_Desktop_7_4afb3a9d9a.jpg";
+import image3 from "../../asset/Star12_18_021125_DSC_4851_desktop_a63e515a55.jpg";
+import image4 from "../../asset/make_life_multiplanetary_desktop_3fa7cff73c.jpg";
 
-const images = [
-  { image: image1, link: "/login" },
-  { image: image2, link: "/" },
-  { image: image3, link: "/" },
-  { image: image4, link: "/" },
+// Static images array moved outside component to prevent re-render recreation
+const IMAGES = [
+  {
+    image: image1,
+    link: "/login",
+  },
+  {
+    image: image2,
+    link: "/",
+  },
+  {
+    image: image3,
+    link: "/",
+  },
+  {
+    image: image4,
+    link: "/",
+  },
 ];
 
 const Landing: FC = () => {
   const navigate = useNavigate();
 
-  const handleOnClick = (link: string) => {
-    navigate(link);
-  };
+  // Memoized click handler to prevent unnecessary re-renders
+  const handleExploreClick = useCallback(
+    (link: string) => () => navigate(link),
+    [navigate]
+  );
 
   return (
-    <>
-      {/* <Container className={classes.imageContainer} fluid> */}
-      <div className={classes.imageContainer}>
-        <HeaderSearch />
+    <div className={classes.imageContainer}>
+      <HeaderSearch />
 
-        <div className={classes.imageGrid}>
-          {images.map((image, index) => (
-            <div className={classes.imageWrapper} key={index}>
-              <Image
-                src={image.image}
-                alt=""
-                className={classes.responsiveImage}
-              />
-              <div className={classes.overlay}>
-                <Button
-                  className={classes.exploreButton}
-                  onClick={() => handleOnClick(image.link)}
-                >
-                  Explore
-                </Button>
-                <Text className={classes.exploreText}>
-                  Explore more about the program
-                </Text>
-              </div>
+      <div className={classes.imageGrid}>
+        {IMAGES.map(({ image, link }, index) => (
+          <div className={classes.imageWrapper} key={image}>
+            <Image
+              src={image}
+              alt={`SpaceX mission ${index + 1}`}
+              className={classes.responsiveImage}
+              loading="lazy"
+              placeholder={<div className={classes.imagePlaceholder} />}
+            />
+            <div className={classes.overlay}>
+              <Button
+                className={classes.exploreButton}
+                onClick={handleExploreClick(link)}
+                aria-label={`Explore mission ${index + 1}`}
+              >
+                Explore
+              </Button>
+              <Text className={classes.exploreText}>
+                Explore more about the program
+              </Text>
             </div>
-          ))}
-        </div>
-
-        <div className={classes.footer}>
-          <p>@Copyright reserved @mySpaceX 2025</p>
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+
+      <footer className={classes.footer}>
+        <p>@Copyright reserved @mySpaceX 2025</p>
+      </footer>
+    </div>
   );
 };
 
