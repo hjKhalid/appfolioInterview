@@ -10,9 +10,9 @@ import image4 from "../../asset/make_life_multiplanetary_desktop_3fa7cff73c.jpg"
 
 const IMAGES = [
   { image: image1, link: "/login" },
-  { image: image2, link: "/" },
-  { image: image3, link: "/" },
-  { image: image4, link: "/" },
+  { image: image2, link: "/login" },
+  { image: image3, link: "/login" },
+  { image: image4, link: "/login" },
 ];
 
 const Landing: FC = () => {
